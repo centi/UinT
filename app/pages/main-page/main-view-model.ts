@@ -13,8 +13,8 @@ export class MainViewModel extends Observable {
         this._input = new Observable({
             value : 1
         });
-        this._convertersService = new ConvertersService(this._input);
-        this._converters = this._convertersService.selectedConverters;
+        this._convertersService = new ConvertersService(this.input);
+        this._converters = this._convertersService.allConverters;
     }
 
     public get input():Observable {

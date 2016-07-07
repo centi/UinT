@@ -1,10 +1,7 @@
 import {Observable} from 'data/observable';
 import {ConverterInfo} from '../shared/interfaces';
 import {Converter} from '../converters/converter';
-import {MilesKmConverter} from '../converters/mile-km.converter';
-import {YardsMConverter} from '../converters/yard-m.converter';
-import {PoundsKgConverter} from '../converters/pound-kg.converter';
-import {GallonsLConverter} from '../converters/gallon-l.converter';
+import {converters} from '../converters/converters'
 
 export class ConvertersService {
     private _input: Observable;
@@ -13,24 +10,13 @@ export class ConvertersService {
     constructor(input: Observable) {
         this._input = input;
 
-        this._allConverters = [
-            {
-                name: 'miles-km',
-                converter: new MilesKmConverter(this._input)
-            },
-            {
-                name: 'yards-m',
-                converter: new YardsMConverter(this._input)
-            },
-            {
-                name: 'pounds-kg',
-                converter: new PoundsKgConverter(this._input)
-            },
-            {
-                name: 'gallons-l',
-                converter: new GallonsLConverter(this._input)
+        
+        this._allConverters = converters.map(c => {
+            return {
+                name      : c.name,
+                converter : new c.converter(this._input)
             }
-        ];
+        })
     }
 
     public get allConverters():Converter[] {

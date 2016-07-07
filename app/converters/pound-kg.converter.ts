@@ -1,13 +1,8 @@
 import {Converter} from './converter';
 
 export class PoundsKgConverter extends Converter {
-    protected calculate() {
-        var multiplier = 0.453592;
-        var from = this._input.get('value') * multiplier;
-        var to = this._input.get('value') / multiplier;
-
-        this._output.set('from', from.toFixed(2));
-        this._output.set('to', to.toFixed(2));
+    protected getMultiplier():number {
+        return 0.453592;
     }
 
     public get labels():{from:string; to:string} {

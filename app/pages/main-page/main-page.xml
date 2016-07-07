@@ -1,15 +1,17 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" actionBarHidden="true">
   <GridLayout rows="auto, *">
     <TextField class="main-input" text="{{input.value}}" row="0" keyboardType="number" returnKeyType="done" />
-    <Repeater items="{{converters}}" row="1">
-      <Repeater.itemTemplate>
-        <GridLayout class="converter" columns="auto, *, *, auto">
-          <Label class="label label-from" text="{{labels.from}}" col="0" />
-          <Label class="value value-to" text="{{output.to}}" col="1" />
-          <Label class="value value-from" text="{{output.from}}" col="2" />
-          <Label class="label label-to" text="{{labels.to}}" col="3" />
-        </GridLayout>
-      </Repeater.itemTemplate>
-    </Repeater>
+    <ScrollView row="1">
+      <Repeater items="{{converters}}">
+        <Repeater.itemTemplate>
+          <GridLayout class="converter" columns="auto, *, *, auto">
+            <Label class="label label-from" text="{{labels.from}}" col="0" />
+            <Label class="value value-to" text="{{output.to}}" col="1" />
+            <Label class="value value-from" text="{{output.from}}" col="2" />
+            <Label class="label label-to" text="{{labels.to}}" col="3" />
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </ScrollView>
   </GridLayout>
 </Page>
