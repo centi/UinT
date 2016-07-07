@@ -11,7 +11,7 @@ export class MainViewModel extends Observable {
         super();
 
         this._input = new Observable({
-            value : 1
+            value : null
         });
         this._convertersService = new ConvertersService(this.input);
         this._converters = this._convertersService.allConverters;
