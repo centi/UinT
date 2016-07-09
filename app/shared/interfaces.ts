@@ -12,7 +12,14 @@ export interface IOutputValue {
     toRounded: string;
 }
 
-export interface ConverterInfo {
-    name: string;
-    converter: Converter;
+export interface IOutputLabel {
+    from: string;
+    to: string;
+}
+
+export interface IConverter {
+    id: string;
+    label: IOutputLabel;
+    isSelected: boolean;
+    output: IOutputValue;
 }

@@ -1,4 +1,45 @@
 import {Observable, PropertyChangeData} from 'data/observable';
+import {IConverter, IOutputLabel} from '../shared/interfaces';
+import {OutputValue} from '../shared/output-value';
+
+export class Converter extends Observable implements IConverter {
+    id: string;
+    label: IOutputLabel;
+    protected _output: OutputValue;
+    protected _isSelected: boolean;
+
+    constructor() {
+        super();
+
+        this._output = new OutputValue(this.getFractionDigits());
+    }
+
+    get output():OutputValue {
+        return this._output;
+    }
+
+    get isSelected():boolean {
+        return this._isSelected;
+    }
+
+    protected calculate(input:number) {
+        var multiplier = this.getMultiplier();
+
+        this._output.from = input * multiplier;
+        this._output.to = input / multiplier;
+    }
+
+    protected getFractionDigits():number {
+        return 1;
+    }
+
+    protected getMultiplier():number {
+        return 1;
+    }
+}
+
+/*
+import {Observable, PropertyChangeData} from 'data/observable';
 import {InputValue} from '../shared/input-value';
 import {OutputValue} from '../shared/output-value';
 
@@ -9,7 +50,7 @@ export class Converter {
     constructor(input:InputValue) {
         this._input = input;
         this._output = new OutputValue(this.getFractionDigits());
-        
+
         this._input.on(Observable.propertyChangeEvent, this.onInputChange.bind(this));
 
         this._calculate();
@@ -52,3 +93,4 @@ export class Converter {
         return this._output;
     }
 }
+*/

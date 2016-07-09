@@ -1,14 +1,17 @@
 import {Converter} from './converter';
 
 export class InchesCmConverter extends Converter {
-    protected getMultiplier():number {
-        return 2.54;
-    }
+    constructor() {
+        super();
 
-    public get labels():{from:string; to:string} {
-        return {
+        this.id = 'inch-cm';
+        this.label = {
             from : 'Inches',
             to : 'Cm'
-        }
+        };
+    }
+
+    protected getMultiplier():number {
+        return 2.54;
     }
 }

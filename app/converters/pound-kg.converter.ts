@@ -1,14 +1,17 @@
 import {Converter} from './converter';
 
 export class PoundsKgConverter extends Converter {
-    protected getMultiplier():number {
-        return 0.453592;
-    }
+    constructor() {
+        super();
 
-    public get labels():{from:string; to:string} {
-        return {
+        this.id = 'pound-kg';
+        this.label = {
             from : 'Pounds',
             to : 'Kg'
-        }
+        };
+    }
+
+    protected getMultiplier():number {
+        return 0.453592;
     }
 }

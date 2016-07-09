@@ -1,17 +1,18 @@
 import {Observable} from 'data/observable';
-import {ConverterInfo} from '../shared/interfaces';
+import {IConverterInfo} from '../shared/interfaces';
 import {Converter} from '../converters/converter';
 import {converters} from '../converters/converters'
 import {InputValue} from '../shared/input-value';
 
+/*
 export class ConvertersService {
     private _input: InputValue;
-    private _allConverters: ConverterInfo[];
+    private _allConverters: IConverterInfo[];
 
     constructor(input: InputValue) {
         this._input = input;
 
-        
+
         this._allConverters = converters.map(c => {
             return {
                 name      : c.name,
@@ -30,3 +31,4 @@ export class ConvertersService {
         return this._allConverters.filter(ci => _names.indexOf(ci.name) >= 0).map(ci => ci.converter);
     }
 }
+*/

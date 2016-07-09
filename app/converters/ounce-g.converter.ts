@@ -1,14 +1,17 @@
 import {Converter} from './converter';
 
 export class OuncesGConverter extends Converter {
-    protected getMultiplier():number {
-        return 28.3495; // I use this as an approximation for 'to Ml' conversion
-    }
+    constructor() {
+        super();
 
-    public get labels():{from:string; to:string} {
-        return {
+        this.id = 'ounce-g';
+        this.label = {
             from : 'Ounces',
             to : 'G/Ml'
-        }
+        };
+    }
+
+    protected getMultiplier():number {
+        return 28.3495; // I use this as an approximation for 'to Ml' conversion
     }
 }

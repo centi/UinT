@@ -1,14 +1,17 @@
 import {Converter} from './converter';
 
 export class MilesKmConverter extends Converter {
-    protected getMultiplier():number {
-        return 1.60934;
-    }
+    constructor() {
+        super();
 
-    public get labels():{from:string; to:string} {
-        return {
+        this.id = 'mile-km';
+        this.label = {
             from : 'Miles',
             to : 'Km'
-        }
+        };
+    }
+
+    protected getMultiplier():number {
+        return 1.60934;
     }
 }

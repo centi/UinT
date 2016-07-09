@@ -1,14 +1,17 @@
 import {Converter} from './converter';
 
 export class FeetMConverter extends Converter {
-    protected getMultiplier():number {
-        return 0.3048;
-    }
+    constructor() {
+        super();
 
-    public get labels():{from:string; to:string} {
-        return {
+        this.id = 'foot-cm';
+        this.label = {
             from : 'Feet',
             to : 'Meters'
-        }
+        };
+    }
+
+    protected getMultiplier():number {
+        return 0.3048;
     }
 }

@@ -1,14 +1,17 @@
 import {Converter} from './converter';
 
 export class GallonsLConverter extends Converter {
-    protected getMultiplier():number {
-        return 3.78541;
+    constructor() {
+        super();
+
+        this.id = 'gallon-l';
+        this.label = {
+            from : 'Gallons',
+            to : 'Liters'
+        };
     }
 
-    public get labels():{from:string; to:string} {
-        return {
-            from : 'Gallons',
-            to : 'Litres'
-        }
+    protected getMultiplier():number {
+        return 3.78541;
     }
 }
