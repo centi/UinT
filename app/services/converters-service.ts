@@ -2,12 +2,13 @@ import {Observable} from 'data/observable';
 import {ConverterInfo} from '../shared/interfaces';
 import {Converter} from '../converters/converter';
 import {converters} from '../converters/converters'
+import {InputValue} from '../shared/input-value';
 
 export class ConvertersService {
-    private _input: Observable;
+    private _input: InputValue;
     private _allConverters: ConverterInfo[];
 
-    constructor(input: Observable) {
+    constructor(input: InputValue) {
         this._input = input;
 
         

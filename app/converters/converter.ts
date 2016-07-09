@@ -1,16 +1,14 @@
 import {Observable, PropertyChangeData} from 'data/observable';
+import {InputValue} from '../shared/input-value';
+import {OutputValue} from '../shared/output-value';
 
 export class Converter {
-    protected _input:Observable;
-    protected _output:Observable;
-    private _inputSafeValue:number;
+    protected _input:InputValue;
+    protected _output:OutputValue;
 
-    constructor(input:Observable) {
+    constructor(input:InputValue) {
         this._input = input;
-        this._output = new Observable({
-            from : 0,
-            to : 0
-        });
+        this._output = new OutputValue(this.getFractionDigits());
         
         this._input.on(Observable.propertyChangeEvent, this.onInputChange.bind(this));
 
@@ -22,17 +20,14 @@ export class Converter {
     }
 
     private _calculate() {
-        this._inputSafeValue = isNaN(this.input.get('value')) ? 0 : this.input.get('value');
         this.calculate();
     }
 
     protected calculate() {
         var multiplier = this.getMultiplier();
-        var from = this.inputSafeValue * multiplier;
-        var to = this.inputSafeValue / multiplier;
 
-        this._output.set('from', from.toFixed(this.getFractionDigits()));
-        this._output.set('to', to.toFixed(this.getFractionDigits()));
+        this._output.from = this.input.safeValue * multiplier;
+        this._output.to = this.input.safeValue / multiplier;
     }
 
     protected getMultiplier():number {
@@ -49,15 +44,11 @@ export class Converter {
         return null
     }
 
-    public get input():Observable {
+    public get input():InputValue {
         return this._input;
     }
 
-    public get inputSafeValue():number {
-        return this._inputSafeValue;
-    }
-
-    public get output():Observable {
+    public get output():OutputValue {
         return this._output;
     }
 }

@@ -1,7 +1,7 @@
 import {Observable, EventData} from 'data/observable';
 import {ObservableArray, ChangedData} from 'data/observable-array';
 import {Page} from 'ui/page';
-import {MainViewModel} from './main-view-model';
+import {MainViewModel} from '../../models/main-view.model';
 
 let vm = new MainViewModel();
 
