@@ -15,4 +15,8 @@ export class ConvertersService {
     get selectedConverters(): Converter[] {
         return this._converters.filter(c => c.isSelected);
     }
+
+    toggleSelected(converter: Converter) {
+        converter.isSelected = !converter.isSelected;
+    }
 }

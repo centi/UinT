@@ -1,5 +1,5 @@
 import {Observable, PropertyChangeData} from 'data/observable';
-import {ConvertersService} from '../../services/converters-service';
+import {ConvertersService} from '../../services/converters.service';
 import {Converter} from '../../converters/converter';
 import {InputValue} from '../../shared/input-value';
 

@@ -1,6 +1,7 @@
 import {Observable, PropertyChangeData} from 'data/observable';
-import {IConverter, IOutputLabel} from '../shared/interfaces';
+import {IConverter, IOutputLabel, IConverterInfo} from '../shared/interfaces';
 import {OutputValue} from '../shared/output-value';
+import * as selectedConvertersService from '../services/selected-converters.service';
 
 export class Converter extends Observable implements IConverter {
     id: string;
@@ -20,7 +21,24 @@ export class Converter extends Observable implements IConverter {
     }
 
     get isSelected():boolean {
-        return this._isSelected;
+        var selectedIndex = selectedConvertersService.findConverterIndexInSelected(this.id);
+        return selectedIndex >= 0;
+    }
+
+    set isSelected(selected:boolean) {
+        var ci:IConverterInfo = {
+            id : this.id,
+            title: this.title
+        };
+
+        this._isSelected = selected;
+        if (this._isSelected) {
+            selectedConvertersService.addToSelected(ci);
+        }
+        else {
+            selectedConvertersService.removeFromSelected(ci);
+        }
+        this.notifyPropertyChange('isSelected', this._isSelected);
     }
 
     calculate(input:number) {

@@ -2,6 +2,7 @@ import {EventData} from 'data/observable';
 import {Page} from 'ui/page';
 import {GridLayout} from 'ui/layouts/grid-layout';
 import {SettingsViewModel} from './settings-view.model';
+import {Converter} from '../../converters/converter';
 import * as navigationModule from '../../shared/navigation';
 
 var vm = new SettingsViewModel();
@@ -17,11 +18,8 @@ export function goBack() {
 }
 
 export function toggleSelect(args: EventData) {
-    /*
     var converterRow = <GridLayout> args.object;
-    var ci = <Converter> converterRow.bindingContext;
+    var converter = <Converter> converterRow.bindingContext;
 
-    convertersService.toggleSelected(ci);
-    vm.notifyPropertyChange('converters', vm.converters);
-    */
+    vm.toggleSelected(converter);
 }

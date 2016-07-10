@@ -24,3 +24,8 @@ export interface IConverter {
     isSelected: boolean;
     output: IOutputValue;
 }
+
+export interface IConverterInfo {
+    id: string;
+    title: string;
+}

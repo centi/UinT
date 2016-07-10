@@ -7,9 +7,9 @@
     <ScrollView>
         <Repeater items="{{converters}}">
             <Repeater.itemTemplate>
-                <GridLayout class="converter-checkbox" columns="auto, *" tap="toggleSelect">
-                    <Label text="{{selected}}" col="0" />
-                    <Label text="{{title}}" col="1" />
+                <GridLayout class="converter" columns="auto, *" tap="toggleSelect">
+                    <Label text="{{'selected: ' + isSelected}}" col="0" />
+                    <Label class="label" text="{{title}}" col="1" />
                 </GridLayout>
             </Repeater.itemTemplate>
         </Repeater>
