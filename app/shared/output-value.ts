@@ -25,6 +25,7 @@ export class OutputValue extends Observable implements IOutputValue {
     set from(value:number) {
         this._from = value;
         this.notifyPropertyChange('from', value);
+        this.notifyPropertyChange('fromRounded', this.fromRounded);
     }
 
     get to():number {
@@ -38,5 +39,6 @@ export class OutputValue extends Observable implements IOutputValue {
     set to(value:number) {
         this._to = value;
         this.notifyPropertyChange('to', value);
+        this.notifyPropertyChange('toRounded', this.toRounded);
     }
 }

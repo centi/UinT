@@ -4,10 +4,8 @@ import {IInputValue} from './interfaces';
 export class InputValue extends Observable implements IInputValue {
     private _value:number;
 
-    constructor(value?:number) {
+    constructor() {
         super();
-
-        this._value = value;
     }
 
     get value() {

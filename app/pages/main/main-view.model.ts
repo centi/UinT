@@ -11,13 +11,12 @@ export class MainViewModel extends Observable {
     constructor() {
         super();
 
-        this._input = new InputValue(10);
+        this._input = new InputValue();
         this._convertersService = new ConvertersService();
         this._converters = this._convertersService.converters;
 
         this._input.on(Observable.propertyChangeEvent, this.onInputChange.bind(this))
-
-        this.calculate();
+        this._input.value = 10;
     }
 
     private onInputChange(data:PropertyChangeData) {
