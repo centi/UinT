@@ -9,6 +9,7 @@ export class InchesCmConverter extends Converter {
             from : 'Inches',
             to : 'Cm'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {

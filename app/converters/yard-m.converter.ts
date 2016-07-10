@@ -9,6 +9,7 @@ export class YardsMConverter extends Converter {
             from : 'Yards',
             to : 'Meters'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {

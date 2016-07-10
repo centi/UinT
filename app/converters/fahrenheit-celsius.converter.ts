@@ -5,14 +5,14 @@ export class FahrenheitCelsiusConverter extends Converter {
         super();
 
         this.id = 'fahrenheit-celsius';
-        this.title = 'Fahrenheit <-> Celsius';
         this.label = {
             from : '°F',
             to : '°C'
         };
+        this.title = 'Fahrenheit <-> Celsius';
     }
 
-    protected calculate(input:number) {
+    calculate(input:number) {
         var multiplier = 1.8;
         var offset = 32;
 

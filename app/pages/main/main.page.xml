@@ -5,10 +5,10 @@
       <Repeater items="{{converters}}">
         <Repeater.itemTemplate>
           <GridLayout class="converter" columns="auto, *, *, auto">
-            <Label class="label label-from" text="{{labels.from}}" col="0" />
-            <Label class="value value-to" text="{{output.to}}" col="1" />
-            <Label class="value value-from" text="{{output.from}}" col="2" />
-            <Label class="label label-to" text="{{labels.to}}" col="3" />
+            <Label class="label label-from" text="{{label.from}}" col="0" />
+            <Label class="value value-to" text="{{output.toRounded}}" col="1" />
+            <Label class="value value-from" text="{{output.fromRounded}}" col="2" />
+            <Label class="label label-to" text="{{label.to}}" col="3" />
           </GridLayout>
         </Repeater.itemTemplate>
       </Repeater>

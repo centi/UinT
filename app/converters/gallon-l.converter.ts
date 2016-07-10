@@ -9,6 +9,7 @@ export class GallonsLConverter extends Converter {
             from : 'Gallons',
             to : 'Liters'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {

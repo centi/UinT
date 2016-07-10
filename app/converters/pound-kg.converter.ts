@@ -9,6 +9,7 @@ export class PoundsKgConverter extends Converter {
             from : 'Pounds',
             to : 'Kg'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {

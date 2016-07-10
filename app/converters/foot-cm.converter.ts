@@ -9,6 +9,7 @@ export class FeetMConverter extends Converter {
             from : 'Feet',
             to : 'Meters'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {

@@ -19,6 +19,7 @@ export interface IOutputLabel {
 
 export interface IConverter {
     id: string;
+    title: string;
     label: IOutputLabel;
     isSelected: boolean;
     output: IOutputValue;

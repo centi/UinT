@@ -9,6 +9,7 @@ export class MilesKmConverter extends Converter {
             from : 'Miles',
             to : 'Km'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {

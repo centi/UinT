@@ -9,6 +9,7 @@ export class OuncesGConverter extends Converter {
             from : 'Ounces',
             to : 'G/Ml'
         };
+        this.title = `${this.label.from} <-> ${this.label.to}`;
     }
 
     protected getMultiplier():number {
