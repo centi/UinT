@@ -9,11 +9,11 @@
     <ScrollView row="1">
       <Repeater items="{{converters}}">
         <Repeater.itemTemplate>
-          <GridLayout class="converter" columns="auto, *, *, auto">
-            <Label class="label label-from" text="{{label.from}}" col="0" />
-            <Label class="value value-to" text="{{output.toRounded}}" col="1" />
-            <Label class="value value-from" text="{{output.fromRounded}}" col="2" />
-            <Label class="label label-to" text="{{label.to}}" col="3" />
+          <GridLayout class="list-item converter" columns="auto, *, *, auto">
+            <Label class="label label-left" text="{{label.from}}" col="0" />
+            <Label class="value value-left" text="{{output.toRounded}}" col="1" />
+            <Label class="value value-right" text="{{output.fromRounded}}" col="2" />
+            <Label class="label label-right" text="{{label.to}}" col="3" />
           </GridLayout>
         </Repeater.itemTemplate>
       </Repeater>
