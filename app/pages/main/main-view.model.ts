@@ -16,7 +16,6 @@ export class MainViewModel extends Observable {
         this._converters = this._convertersService.converters;
 
         this._input.on(Observable.propertyChangeEvent, this.onInputChange.bind(this))
-        this._input.value = 10;
     }
 
     private onInputChange(data:PropertyChangeData) {
