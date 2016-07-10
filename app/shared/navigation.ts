@@ -2,7 +2,6 @@ import * as frameModule from 'ui/frame';
 
 export function	startingPage() {
     return 'pages/main/main.page';
-    //return 'pages/settings/settings.page';
 }
 
 export function	gotoSettingsPage() {
