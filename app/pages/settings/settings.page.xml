@@ -1,0 +1,17 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+    <Page.actionBar>
+        <ActionBar title="Settings">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="goBack" />
+        </ActionBar>
+    </Page.actionBar>
+    <ScrollView>
+        <Repeater items="{{converters}}">
+            <Repeater.itemTemplate>
+                <GridLayout class="converter-checkbox" columns="auto, *" tap="toggleSelect">
+                    <Label text="{{selected}}" col="0" />
+                    <Label text="{{title}}" col="1" />
+                </GridLayout>
+            </Repeater.itemTemplate>
+        </Repeater>
+    </ScrollView>
+</Page>

@@ -1,4 +1,9 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" actionBarHidden="true">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+  <Page.actionBar>
+    <ActionBar title="Convert">
+      <ActionItem tap="gotoSettings"  ios.position="right" text="Settings" android.systemIcon="ic_menu_preferences" android.position="actionBarIfRoom" />
+    </ActionBar>
+  </Page.actionBar>
   <GridLayout rows="auto, *">
     <TextField class="main-input" text="{{input.value}}" row="0" keyboardType="number" returnKeyType="done" />
     <ScrollView row="1">
