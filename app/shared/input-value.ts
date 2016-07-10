@@ -15,6 +15,7 @@ export class InputValue extends Observable implements IInputValue {
     set value(value:number) {
         this._value = value;
         this.notifyPropertyChange('value', value);
+        this.notifyPropertyChange('safeValue', this.safeValue);
     }
 
     get safeValue() {

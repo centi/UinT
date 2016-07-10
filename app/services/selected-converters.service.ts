@@ -45,6 +45,5 @@ function persistConverterToSelected(ci: IConverterInfo) {
 
 function updateSelected() {
     var newValue = JSON.stringify(selected);
-    console.log('selected converters: ' + newValue);
     appSettingsModule.setString(SELECTED_CONVERTERS, newValue);
 }

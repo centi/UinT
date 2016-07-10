@@ -12,10 +12,8 @@ export class MainViewModel extends Observable {
         super();
 
         this._input = new InputValue();
-        this._convertersService = new ConvertersService();
-        this._converters = this._convertersService.converters;
-
         this._input.on(Observable.propertyChangeEvent, this.onInputChange.bind(this))
+        this._convertersService = new ConvertersService();
     }
 
     private onInputChange(data:PropertyChangeData) {
@@ -23,7 +21,13 @@ export class MainViewModel extends Observable {
     }
 
     private calculate() {
-        this._converters.forEach(c => c.calculate(this._input.value));
+        this._converters.forEach(c => c.calculate(this._input.safeValue));
+    }
+
+    init() {
+        this._converters = this._convertersService.selectedConverters;
+        this.calculate();
+        this.notifyPropertyChange('converters', this._converters);
     }
 
     get input():InputValue {

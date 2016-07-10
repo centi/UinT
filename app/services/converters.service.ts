@@ -13,7 +13,14 @@ export class ConvertersService {
     }
 
     get selectedConverters(): Converter[] {
-        return this._converters.filter(c => c.isSelected);
+        var selectedConverters = this._converters.filter(c => c.isSelected);
+
+        if (selectedConverters.length > 0) {
+            return selectedConverters;
+        }
+        else {
+            return this._converters;
+        }
     }
 
     toggleSelected(converter: Converter) {

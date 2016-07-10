@@ -9,6 +9,11 @@ export function pageLoaded(args: EventData) {
     var page = <Page> args.object;
 
     page.bindingContext = vm;
+    vm.init();
+}
+
+export function pageNavigatedTo(args: EventData) {
+    console.log('navigated to main');
 }
 
 export function gotoSettings() {
